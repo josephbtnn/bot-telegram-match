@@ -1,4 +1,5 @@
-Nom de l'actionname: Run Telegram BotDéclencheurson:Permet de lancer manuellement l'action depuis l'onglet "Actions" de GitHubworkflow_dispatch:Planification : s'exécute tous les lundis à 10h00 UTCschedule:- cron: '0 10 * * 1'Tâches à exécuterjobs:build:runs-on: ubuntu-lateststeps:
+Nom de l'action
+name: Run Telegram BotDéclencheurson:Permet de lancer manuellement l'action depuis l'onglet "Actions" de GitHubworkflow_dispatch:Planification : s'exécute tous les lundis à 10h00 UTCschedule:- cron: '0 10 * * 1'Tâches à exécuterjobs:build:runs-on: ubuntu-lateststeps:
   # 1. Récupère le code de votre projet
   - name: Checkout repo
     uses: actions/checkout@v3
