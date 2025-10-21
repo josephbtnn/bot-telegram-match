@@ -3,12 +3,11 @@ name: Run Telegram Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * 1'  # Exécution chaque lundi à 10h UTC
+    - cron: '* * * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
