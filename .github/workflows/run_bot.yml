@@ -1,22 +1,19 @@
-Nom de l'action
-name: Run Telegram BotDéclencheurson:Permet de lancer manuellement l'action depuis l'onglet "Actions" de GitHubworkflow_dispatch:Planification : s'exécute tous les lundis à 10h00 UTCschedule:- cron: '0 10 * * 1'Tâches à exécuterjobs:build:runs-on: ubuntu-lateststeps:
-  # 1. Récupère le code de votre projet
+name: Run Telegram Bot
+on:workflow_dispatch:schedule:- cron: '0 10 * * 1'
+jobs:build:runs-on: ubuntu-lateststeps:
   - name: Checkout repo
     uses: actions/checkout@v3
 
-  # 2. Configure l'environnement Python
   - name: Set up Python
     uses: actions/setup-python@v4
     with:
       python-version: '3.10'
 
-  # 3. Installe les bibliothèques nécessaires
   - name: Install dependencies
     run: |
       python -m pip install --upgrade pip
       pip install python-telegram-bot "beautifulsoup4<4.13" requests
 
-  # 4. Exécute le script Python
   - name: Run bot script
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
